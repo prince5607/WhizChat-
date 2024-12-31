@@ -1,0 +1,21 @@
+cloudinary - used to store images
+
+frontend(React) :-
+
+-> daisyUI - provide builtin components in tailwind
+
+-> BrowserRouter - contained in react-router-dom ,The BrowserRouter component utilizes the HTML5 history API (pushState, replaceState, and the popstate event) to keep the UI in sync with the URL in the browser address bar without page reloads. It provides a declarative way to manage routing in React applications by mapping certain components to specific routes.
+
+-> zustand - Managing state in a React application is a crucial aspect of building robust and efficient user interfaces. One popular choice for state management is Zustand, a lightweight and flexible state management library.
+Zustand is a modern state manager solution for managing state in your React app project. There are pros and cons when comparing it to another state manager like Redux. In my opinion, and based on documentation, it is the best solution when your project is not large and is of small or medium scale. Therefore, if you have a large-scale app, it’s better to use Redux and React Context, reserving Zustand for micro frontend apps.
+
+-> axios -Axios is a promise-based HTTP client for both the browser and Node.js.It allows you to make HTTP requests from the client-side and server-side using the same codebase.
+
+->cors - inorder to connect frontend with backend we use it,
+The cors package in npm is a Node.jsmiddleware for providing Cross-Origin Resource Sharing (CORS) support in Connect/Express-based web applications. CORS is a security feature that allows or restricts resources to be requested from another domain outside the domain from which the first resource was served.
+
+-> socket.io - To send msg to the server(used in backend), -> socket.io-client -> to get the msg from client and send to server(used in react/frontend)
+
+-> socket.handshake - socket.handshake is used to access information about the connection handshake process, including the details about the client's request that initiated the WebSocket connection. This can be useful for tasks like authentication, logging, and gathering client details.
+
+->socket.on -  socket.on is used to listen for specific events emitted by either the client or the server. It allows you to define handlers that execute when the specified event is received
