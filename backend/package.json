@@ -8,6 +8,7 @@
   },
   "keywords": [],
   "author": "",
+  "type": "commonjs",
   "license": "ISC",
   "description": "",
   "dependencies": {
