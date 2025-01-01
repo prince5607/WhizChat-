@@ -1,12 +1,12 @@
-const express = require('express');
-const authRouter = require('./routes/auth.js');
-const msgRouter = require('./routes/msgRoute.js');
-const dotenv = require('dotenv');
-const {connectDB} = require('./lib/db.js');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const { app ,server} = require('./lib/socket.js');
-const path = require("path");
+import express from "express";
+import authRouter from'./routes/auth.js'
+import msgRouter from './routes/msgRoute.js';
+import dotenv from 'dotenv';
+import {connectDB} from'./lib/db.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import { app ,server} from './lib/socket.js';
+import path from "path";
 dotenv.config();  //to access .env variables
 
 

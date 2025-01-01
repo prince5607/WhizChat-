@@ -1,7 +1,7 @@
-const JWT = require('jsonwebtoken');
+import JWT from 'jsonwebtoken';
 
 
-function createTokenForUser(user){
+export function createTokenForUser(user){
 
     const payload = {
         fullName : user.fullName,
@@ -15,12 +15,8 @@ function createTokenForUser(user){
     return token;
 }
 
-function validateToken(token){
+export function validateToken(token){
     const payload = JWT.verify(token,process.env.JWT_SECRET);
     return payload;
 }
 
-module.exports = {
-    createTokenForUser,
-    validateToken
-}

@@ -1,4 +1,4 @@
-const{Schema,model} = require('mongoose');
+import{Schema,model} from 'mongoose';
 
 const MsgSchema = new Schema({
     senderId : {
@@ -21,4 +21,4 @@ const MsgSchema = new Schema({
 
 const Message = model('message',MsgSchema);
 
-module.exports = Message;
+export default Message;

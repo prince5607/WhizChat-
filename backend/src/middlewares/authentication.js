@@ -1,7 +1,7 @@
 
-const{validateToken} = require("../services/authentication");
+import{validateToken} from "../services/authentication.js";
 
-function restrictTo(){
+export function restrictTo(){
     return (req,res,next)=>{
         
         try {
@@ -22,6 +22,3 @@ function restrictTo(){
     }
 }
 
-module.exports = {
-    restrictTo
-}

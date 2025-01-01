@@ -1,6 +1,6 @@
-const express = require('express');
-const { HandleUserSignUp, HandleUserLogin, HandleUserLogout, checkAuth,HandleUpdateProfile } = require('../controller/auth');
-const { restrictTo } = require('../middlewares/authentication');
+import express from 'express';
+import { HandleUserSignUp, HandleUserLogin, HandleUserLogout, checkAuth,HandleUpdateProfile } from '../controller/auth.js';
+import { restrictTo } from '../middlewares/authentication.js';
 
 
 const router = express.Router();
@@ -16,4 +16,4 @@ router.put("/update-profile",restrictTo(),HandleUpdateProfile);
 
 router.get("/check",restrictTo(),checkAuth);
 
-module.exports = router;
+export default router;

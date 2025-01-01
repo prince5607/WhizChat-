@@ -1,6 +1,6 @@
-const {Server} = require("socket.io");
-const http = require("http");
-const express = require("express");
+import { Server } from "socket.io";
+import http from "http";
+import express from "express";
 
 const app = express();
 const server = http.createServer(app);
@@ -11,7 +11,7 @@ const io = new Server(server, {
     }
 });
 
-function getRecieverSocketId(userId){               //this function will be used to show messages in real time
+export function getRecieverSocketId(userId){               //this function will be used to show messages in real time
     return userSocketMap[userId];
 }
 
@@ -36,9 +36,4 @@ io.on("connection",(socket)=>{
     });
 })
 
-module.exports = {
-    app,
-    server,
-    io,
-    getRecieverSocketId
-}
+export { io, app, server };

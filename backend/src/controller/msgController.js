@@ -1,9 +1,9 @@
-const Message = require("../models/message");
-const User = require("../models/user");
-const cloudinary = require("../lib/cloudinary");
-const { getRecieverSocketId, io } = require("../lib/socket");
+import Message from "../models/message.js";
+import User from "../models/user.js";
+import cloudinary from "../lib/cloudinary.js";
+import { getRecieverSocketId, io }  from "../lib/socket.js";
 
-async function getUsersForSidebar(req,res){                   
+export async function getUsersForSidebar(req,res){                   
     try {
         const loggedInUserId = req.user._id;       //jo person abhi logged in h uski id
         const filteredUsers = await User.find({ _id :{ $ne : loggedInUserId}}).select('-password'); //get all the users except the loggedin one, $ne means not equals , -password means we do not want password
@@ -14,7 +14,7 @@ async function getUsersForSidebar(req,res){
     }
 }
 
-async function getAllMessages(req,res){
+export async function getAllMessages(req,res){
     try {
         const {id : userToChatId} = req.params;    //jis se chat kr rhe h uski id
         const myId = req.user.id;                  //logged in user ki id
@@ -35,7 +35,7 @@ async function getAllMessages(req,res){
     }
 }
 
-async function sendMessage(req,res){
+export async function sendMessage(req,res){
     try {
         const {text ,image}  = req.body;
         const { id: recieverId} = req.params;
@@ -70,8 +70,3 @@ async function sendMessage(req,res){
     }
 }
 
-module.exports = {
-    getUsersForSidebar,
-    getAllMessages,
-    sendMessage
-}

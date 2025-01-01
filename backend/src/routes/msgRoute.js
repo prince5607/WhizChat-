@@ -1,6 +1,6 @@
-const {Router} = require('express');
-const { restrictTo } = require('../middlewares/authentication');
-const {getAllMessages,getUsersForSidebar,sendMessage} = require('../controller/msgController');
+import {Router} from 'express';
+import { restrictTo } from '../middlewares/authentication.js';
+import {getAllMessages,getUsersForSidebar,sendMessage} from '../controller/msgController.js';
 
 const router = Router();
 
@@ -10,4 +10,4 @@ router.get('/:id',restrictTo(),getAllMessages);
 
 router.post('/send/:id',restrictTo(),sendMessage);
 
-module.exports = router;
+export default router;

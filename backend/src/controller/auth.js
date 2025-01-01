@@ -1,8 +1,8 @@
-const cloudinary = require("../lib/cloudinary");
-const User = require("../models/user");
+import cloudinary from "../lib/cloudinary.js";
+import User from "../models/user.js";
 
 
-async function HandleUserSignUp(req,res){
+export async function HandleUserSignUp(req,res){
     const{fullName,email,password} = req.body;
    
     try {
@@ -18,7 +18,7 @@ async function HandleUserSignUp(req,res){
     }
 }
 
-async function HandleUserLogin(req,res){
+export async function HandleUserLogin(req,res){
     const{email,password} = req.body;
     try{
         const token = await User.matchPasswordandGenerateToken(email,password);
@@ -33,12 +33,12 @@ async function HandleUserLogin(req,res){
     }
     
 }
-function HandleUserLogout(req,res){
+export function HandleUserLogout(req,res){
    res.clearCookie("token");
    return res.status(200).json({message : "Logout successfull"});
 }
 
-async function HandleUpdateProfile(req,res){
+export async function HandleUpdateProfile(req,res){
     try {
         const {profilePic} = req.body;
         const userId = req.user.id;
@@ -54,7 +54,7 @@ async function HandleUpdateProfile(req,res){
     }
 }
 
-function checkAuth(req,res){
+export function checkAuth(req,res){
     try {
         return res.status(200).json(req.user);
     } catch (error) {
@@ -62,10 +62,3 @@ function checkAuth(req,res){
     }
 }
 
-module.exports = {
-    HandleUserSignUp,
-    HandleUserLogin,
-    HandleUserLogout,
-    HandleUpdateProfile,
-    checkAuth
-}
